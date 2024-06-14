@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 14, 2024 at 04:51 AM
+-- Generation Time: Jun 14, 2024 at 05:04 PM
 -- Server version: 8.0.30
 -- PHP Version: 7.4.33
 
@@ -26,6 +26,9 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `admin`
 --
+-- Creation: Jun 10, 2024 at 03:11 PM
+-- Last update: Jun 14, 2024 at 03:28 AM
+--
 
 CREATE TABLE `admin` (
   `id_admin` int NOT NULL,
@@ -40,13 +43,14 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `nama_lengkap`, `username`, `password`, `foto`) VALUES
-(1, 'Administrator', 'admin', '21232f297a57a5a743894a0e4a801fc3', '50082216.jpeg'),
-(5, 'user', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', '97101915.jpeg');
+(1, 'Administrator', 'admin', '21232f297a57a5a743894a0e4a801fc3', '50082216.jpeg');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `bulan`
+--
+-- Creation: Jun 10, 2024 at 03:11 PM
 --
 
 CREATE TABLE `bulan` (
@@ -77,6 +81,8 @@ INSERT INTO `bulan` (`id_bulan`, `bulan`) VALUES
 --
 -- Table structure for table `faq`
 --
+-- Creation: Jun 10, 2024 at 03:11 PM
+--
 
 CREATE TABLE `faq` (
   `id` int NOT NULL,
@@ -97,6 +103,9 @@ INSERT INTO `faq` (`id`, `pertanyaan`, `jawaban`, `created_date`) VALUES
 
 --
 -- Table structure for table `jawaban`
+--
+-- Creation: Jun 10, 2024 at 03:11 PM
+-- Last update: Jun 14, 2024 at 03:28 AM
 --
 
 CREATE TABLE `jawaban` (
@@ -140,6 +149,9 @@ INSERT INTO `jawaban` (`id_jawaban`, `id_responden`, `id_pertanyaan`, `jawaban`,
 --
 -- Table structure for table `jawaban_sementara`
 --
+-- Creation: Jun 10, 2024 at 03:11 PM
+-- Last update: Jun 11, 2024 at 02:10 AM
+--
 
 CREATE TABLE `jawaban_sementara` (
   `id_jawaban` int NOT NULL,
@@ -155,6 +167,9 @@ CREATE TABLE `jawaban_sementara` (
 --
 -- Table structure for table `news`
 --
+-- Creation: Jun 10, 2024 at 03:11 PM
+-- Last update: Jun 14, 2024 at 03:27 AM
+--
 
 CREATE TABLE `news` (
   `id` int NOT NULL,
@@ -168,6 +183,8 @@ CREATE TABLE `news` (
 
 --
 -- Table structure for table `pekerjaan`
+--
+-- Creation: Jun 10, 2024 at 03:11 PM
 --
 
 CREATE TABLE `pekerjaan` (
@@ -191,6 +208,9 @@ INSERT INTO `pekerjaan` (`id`, `pekerjaan`) VALUES
 --
 -- Table structure for table `pelayanan`
 --
+-- Creation: Jun 10, 2024 at 03:11 PM
+-- Last update: Jun 11, 2024 at 12:04 AM
+--
 
 CREATE TABLE `pelayanan` (
   `id_pelayanan` int NOT NULL,
@@ -213,6 +233,8 @@ INSERT INTO `pelayanan` (`id_pelayanan`, `id_unit`, `nama_pelayanan`, `created_d
 --
 -- Table structure for table `pendidikan`
 --
+-- Creation: Jun 10, 2024 at 03:11 PM
+--
 
 CREATE TABLE `pendidikan` (
   `id` varchar(255) NOT NULL,
@@ -234,6 +256,8 @@ INSERT INTO `pendidikan` (`id`, `pendidikan`) VALUES
 
 --
 -- Table structure for table `pertanyaan`
+--
+-- Creation: Jun 10, 2024 at 03:11 PM
 --
 
 CREATE TABLE `pertanyaan` (
@@ -264,6 +288,9 @@ INSERT INTO `pertanyaan` (`id_pertanyaan`, `kategori`, `soal`, `a`, `b`, `c`, `d
 --
 -- Table structure for table `profil_aplikasi`
 --
+-- Creation: Jun 10, 2024 at 03:11 PM
+-- Last update: Jun 14, 2024 at 03:27 AM
+--
 
 CREATE TABLE `profil_aplikasi` (
   `id_profilaplikasi` int NOT NULL,
@@ -288,6 +315,9 @@ INSERT INTO `profil_aplikasi` (`id_profilaplikasi`, `nama_instansi`, `alamat_ins
 
 --
 -- Table structure for table `responden`
+--
+-- Creation: Jun 10, 2024 at 03:11 PM
+-- Last update: Jun 11, 2024 at 02:10 AM
 --
 
 CREATE TABLE `responden` (
@@ -323,6 +353,9 @@ INSERT INTO `responden` (`id_responden`, `email`, `nama`, `umur`, `jk`, `pendidi
 
 --
 -- Table structure for table `saran`
+--
+-- Creation: Jun 10, 2024 at 03:11 PM
+-- Last update: Jun 11, 2024 at 02:10 AM
 --
 
 CREATE TABLE `saran` (
@@ -362,6 +395,9 @@ CREATE TABLE `tahun` (
 --
 -- Table structure for table `unit`
 --
+-- Creation: Jun 10, 2024 at 03:11 PM
+-- Last update: Jun 11, 2024 at 12:03 AM
+--
 
 CREATE TABLE `unit` (
   `id_unit` int NOT NULL,
@@ -380,11 +416,12 @@ INSERT INTO `unit` (`id_unit`, `nama_unit`, `created_date`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure for view `tahun`
+-- Structure for view `tahun` exported as a table
 --
 DROP TABLE IF EXISTS `tahun`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tahun`  AS SELECT DISTINCT year(`responden`.`created_date`) AS `tahun` FROM `responden``responden`  ;
+CREATE TABLE`tahun`(
+    `tahun` int DEFAULT NULL
+);
 
 --
 -- Indexes for dumped tables
